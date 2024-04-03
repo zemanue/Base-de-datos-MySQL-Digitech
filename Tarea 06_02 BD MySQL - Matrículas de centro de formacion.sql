@@ -1,6 +1,7 @@
-TAREA 06_02. Matrículas de centro de formación.
+--TAREA 06_02. Matrículas de centro de formación.
 
-CÓDIGO EN MYSQL:
+--MODELO FÍSICO
+--CÓDIGO EN MYSQL:
 
 CREATE DATABASE Matriculas;
 

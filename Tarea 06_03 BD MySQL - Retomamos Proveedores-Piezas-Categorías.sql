@@ -1,19 +1,17 @@
-TAREA 06_03 - Retomamos Proveedores/Piezas/Categorías
+--TAREA 06_03 - Retomamos Proveedores/Piezas/Categorías
+
+--MODELO RELACIONAL
+-- - PROVEEDORES (CodigoProveedor (PK), Nombre, Direccion, Ciudad, Provincia)
+
+-- - PIEZAS (CodigoPieza (PK), Nombre, Color, Precio, CodigoCategoria (FK))
+
+-- - SUMINISTRAN (CodigoProveedor (PK, FK1), CodigoPieza (PK, FK2), Cantidad, Fecha)
+
+-- - CATEGORIAS (CodigoCategoria (PK), Nombre)
 
 
-MODELO RELACIONAL
-
-- PROVEEDORES (CodigoProveedor (PK), Nombre, Direccion, Ciudad, Provincia)
-
-- PIEZAS (CodigoPieza (PK), Nombre, Color, Precio, CodigoCategoria (FK))
-
-- SUMINISTRAN (CodigoProveedor (PK, FK1), CodigoPieza (PK, FK2), Cantidad, Fecha)
-
-- CATEGORIAS (CodigoCategoria (PK), Nombre)
-
-
-MODELO FÍSICO
-CÓDIGO EN MYSQL:
+--MODELO FÍSICO
+--CÓDIGO EN MYSQL:
 
 CREATE DATABASE Empresa;
 

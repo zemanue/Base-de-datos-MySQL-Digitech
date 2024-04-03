@@ -1,15 +1,11 @@
-TAREA 6. ACADEMIA DE IDIOMAS. 
+--TAREA 6. ACADEMIA DE IDIOMAS. 
+--MODELO RELACIONAL
+-- - ALUMNOS (nombre, apellidos, DNI (PK), dirección, fecha de nacimiento, sexo (H/M), curso).
+-- - PROFESORES (nombre, apellidos, DNI (PK), dirección, título académico (LDO/DDO/CFGS), precio por hora (dos decimales y > 0)).
+-- - CURSOS (nombre, código (PK), num alumnos recomendados, DNI profesor (FK), fecha inicio, fecha finalización (> fecha inicio), num horas del curso (>= 80))
 
-MODELO RELACIONAL
-
-- ALUMNOS (nombre, apellidos, DNI (PK), dirección, fecha de nacimiento, sexo (H/M), curso).
-
-- PROFESORES (nombre, apellidos, DNI (PK), dirección, título académico (LDO/DDO/CFGS), precio por hora (dos decimales y > 0)).
-
-- CURSOS (nombre, código (PK), num alumnos recomendados, DNI profesor (FK), fecha inicio, fecha finalización (> fecha inicio), num horas del curso (>= 80))
-
-
-CÓDIGO EN MYSQL:
+--MODELO FÍSICO
+--CÓDIGO EN MYSQL:
 
 CREATE DATABASE AcademiaIdiomas;
 
