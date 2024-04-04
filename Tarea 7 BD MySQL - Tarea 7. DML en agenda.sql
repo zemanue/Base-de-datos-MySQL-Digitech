@@ -10,11 +10,11 @@ USE Pruebas;
 
 -- A) Crear la tabla agenda
 CREATE TABLE Agenda (
-    Apellido VARCHAR(30),
-    Nombre VARCHAR(20),
+    Apellido  VARCHAR(30),
+    Nombre    VARCHAR(20),
     Domicilio VARCHAR(30),
-    Telefono INT(9),
-    Prefijo CHAR(5) DEFAULT '+0034'
+    Telefono  INT(9),
+    Prefijo   CHAR(5) DEFAULT '+0034'
 );
 
 -- B) Insertar los registros

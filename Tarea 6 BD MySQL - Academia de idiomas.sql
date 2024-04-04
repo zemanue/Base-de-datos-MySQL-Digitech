@@ -12,33 +12,33 @@ CREATE DATABASE AcademiaIdiomas;
 USE AcademiaIdiomas;
 
 CREATE TABLE Alumnos (
-Nombre VARCHAR(50),
-Apellidos VARCHAR(50),
-DNI VARCHAR(10),
-Direccion VARCHAR(100),
+Nombre          VARCHAR(50),
+Apellidos       VARCHAR(50),
+DNI             VARCHAR(10),
+Direccion       VARCHAR(100),
 FechaNacimiento DATE,
-Sexo CHAR(1) CHECK (Sexo IN ('H', 'M')),
+Sexo            CHAR(1) CHECK (Sexo IN ('H', 'M')),
 PRIMARY KEY (DNI)
 );
 
 CREATE TABLE Profesores (
-Nombre VARCHAR(50),
-Apellidos VARCHAR(50),
-DNI VARCHAR(10),
-Direccion VARCHAR(100),
+Nombre          VARCHAR(50),
+Apellidos       VARCHAR(50),
+DNI             VARCHAR(10),
+Direccion       VARCHAR(100),
 TituloAcademico VARCHAR(4) CHECK (TituloAcademico IN ('LDO', 'DDO', 'CFGS')), 
-PrecioHora DECIMAL(4,2) CHECK (PrecioHora > 0),
+PrecioHora      DECIMAL(4,2) CHECK (PrecioHora > 0),
 PRIMARY KEY (DNI)
 );
 
 CREATE TABLE Cursos (
-Nombre VARCHAR(100),
-Codigo VARCHAR(20),
+Nombre             VARCHAR(100),
+Codigo             VARCHAR(20),
 NumAlumnosRecomend INT CHECK (NumAlumnosRecomend >= 10),
-DNIProfesor VARCHAR(10),
-FechaInicio DATE,
-FechaFinalizacion DATE CHECK (FechaFinalizacion > FechaInicio),
-NumHoras INT CHECK (NumHoras >= 80),
+DNIProfesor        VARCHAR(10),
+FechaInicio        DATE,
+FechaFinalizacion  DATE CHECK (FechaFinalizacion > FechaInicio),
+NumHoras           INT CHECK (NumHoras >= 80),
 PRIMARY KEY (Codigo),
 FOREIGN KEY (DNIProfesor) REFERENCES Profesores(DNI)
 );

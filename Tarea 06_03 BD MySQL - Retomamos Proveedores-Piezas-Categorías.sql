@@ -19,30 +19,30 @@ USE Empresa;
 
 CREATE TABLE Proveedores (
 CodigoProveedor CHAR(6),
-Nombre VARCHAR(50) NOT NULL,
-Direccion VARCHAR(100), 
-Ciudad VARCHAR(20), 
-Provincia VARCHAR (20)
+Nombre          VARCHAR(50) NOT NULL,
+Direccion       VARCHAR(100), 
+Ciudad          VARCHAR(20), 
+Provincia       VARCHAR (20)
 );
 
 CREATE TABLE Piezas (
-CodigoPieza CHAR(8),
-Nombre VARCHAR(50) NOT NULL,
-Color VARCHAR (20),
-Precio DECIMAL(5,2),
+CodigoPieza     CHAR(8),
+Nombre          VARCHAR(50) NOT NULL,
+Color           VARCHAR (20),
+Precio          DECIMAL(5,2),
 CodigoCategoria CHAR(7) 
 );
 
 CREATE TABLE Suministran (
 CodigoProveedor CHAR(6),
-CodigoPieza CHAR(8),
-Cantidad INT(4), 
-Fecha DATE
+CodigoPieza     CHAR(8),
+Cantidad        INT(4), 
+Fecha           DATE
 );
 
 CREATE TABLE Categorias (
 CodigoCategoria CHAR(7), 
-Nombre VARCHAR(50) NOT NULL
+Nombre          VARCHAR(50) NOT NULL
 );
 
 ALTER TABLE Proveedores ADD PRIMARY KEY (CodigoProveedor);
