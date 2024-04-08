@@ -26,7 +26,7 @@ Nombre              VARCHAR(50) NOT NULL,
 Licencia_fiscal     VARCHAR(20) NOT NULL, 
 Domicilio           VARCHAR(50),
 Fecha_apertura      DATE NOT NULL,
-Horario              NOT NULL, --Los valores del campo horario sólo pueden ser HOR1, HOR2 y HOR3.
+Horario             VARCHAR(20) CHECK (Horario IN ('HOR1', 'HOR2', 'HOR3')) NOT NULL,
 Cod_localidad       CHAR(6) NOT NULL,
 PRIMARY KEY (Cod_pub)
 );
@@ -50,7 +50,7 @@ CREATE TABLE Existencias (
     Cod_articulo    VARCHAR(10) NOT NULL,
     Nombre          VARCHAR(50) NOT NULL, 
     Cantidad        DECIMAL(5,2) NOT NULL,
-    Precio          DECIMAL(6,2) NOT NULL, --No es posible dar de alta EXISTENCIAS a precio 0.
+    Precio          DECIMAL(6,2) CHECK (Precio > 0) NOT NULL,
     Cod_pub         VARCHAR(10) NOT NULL,
     PRIMARY KEY (Cod_articulo)
 )
@@ -64,6 +64,6 @@ CREATE TABLE Localidad (
 CREATE TABLE Pub_empleado (
     Cod_pub         VARCHAR(10) NOT NULL,
     DNI_empleado    VARCHAR(9) NOT NULL,
-    Funcion         VARCHAR(50) NOT NULL, --El campo función de la tabla PUB_EMPLEADO sólo puede tener los valores CAMARERO, SEGURIDAD, LIMPIEZA.
+    Funcion         VARCHAR(50) CHECK (Funcion IN ('CAMARERO', 'SEGURIDAD', 'LIMPIEZA')) NOT NULL,
     PRIMARY KEY (Cod_pub, DNI_empleado, Funcion)
 )
