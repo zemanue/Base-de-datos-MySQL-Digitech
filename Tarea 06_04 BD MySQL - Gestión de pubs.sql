@@ -26,7 +26,7 @@ Nombre              VARCHAR(50) NOT NULL,
 Licencia_fiscal     VARCHAR(20) NOT NULL, 
 Domicilio           VARCHAR(50),
 Fecha_apertura      DATE NOT NULL,
-Horario             VARCHAR(20) CHECK (Horario IN ('HOR1', 'HOR2', 'HOR3')) NOT NULL,
+Horario             VARCHAR(4) NOT NULL CHECK (Horario IN ('HOR1', 'HOR2', 'HOR3')),
 Cod_localidad       CHAR(6) NOT NULL,
 PRIMARY KEY (Cod_pub)
 );
@@ -37,33 +37,33 @@ CREATE TABLE Titular (
     Domicilio       VARCHAR(50),
     Cod_pub         VARCHAR(10) NOT NULL,
     PRIMARY KEY (DNI_titular)
-)
+);
 
 CREATE TABLE Empleado (
     DNI_empleado    VARCHAR(9) NOT NULL,
     Nombre          VARCHAR(50) NOT NULL,
     Domicilio       VARCHAR(50),
     PRIMARY KEY (DNI_empleado)
-)
+);
 
 CREATE TABLE Existencias (
     Cod_articulo    VARCHAR(10) NOT NULL,
     Nombre          VARCHAR(50) NOT NULL, 
     Cantidad        DECIMAL(5,2) NOT NULL,
-    Precio          DECIMAL(6,2) CHECK (Precio > 0) NOT NULL,
+    Precio          DECIMAL(6,2) NOT NULL CHECK (Precio > 0),
     Cod_pub         VARCHAR(10) NOT NULL,
     PRIMARY KEY (Cod_articulo)
-)
+);
 
 CREATE TABLE Localidad (
     Cod_localidad   CHAR(6) NOT NULL,
     Nombre          VARCHAR(50) NOT NULL, 
-    PRIMARY KEY (Cod_pub)
+    PRIMARY KEY (Cod_localidad)
 );
 
 CREATE TABLE Pub_empleado (
     Cod_pub         VARCHAR(10) NOT NULL,
     DNI_empleado    VARCHAR(9) NOT NULL,
-    Funcion         VARCHAR(50) CHECK (Funcion IN ('CAMARERO', 'SEGURIDAD', 'LIMPIEZA')) NOT NULL,
+    Funcion         VARCHAR(50) NOT NULL CHECK (Funcion IN ('CAMARERO', 'SEGURIDAD', 'LIMPIEZA')),
     PRIMARY KEY (Cod_pub, DNI_empleado, Funcion)
-)
+);
