@@ -21,12 +21,49 @@ CREATE DATABASE Pubs;
 USE Pubs;
 
 CREATE TABLE Pub (
-Cod_pub         VARCHAR(10) NOT NULL,
-Nombre          VARCHAR(50) NOT NULL,
-Licencia_fiscal VARCHAR(20) NOT NULL, 
-Domicilio       VARCHAR(50),
-Fecha_apertura  DATE NOT NULL,
-Horario         VARCHAR() NOT NULL, --Los valores del campo horario sólo pueden ser HOR1, HOR2 y HOR3.
-Cod_localidad   CHAR(5) NOT NULL,
+Cod_pub             VARCHAR(10) NOT NULL,
+Nombre              VARCHAR(50) NOT NULL,
+Licencia_fiscal     VARCHAR(20) NOT NULL, 
+Domicilio           VARCHAR(50),
+Fecha_apertura      DATE NOT NULL,
+Horario              NOT NULL, --Los valores del campo horario sólo pueden ser HOR1, HOR2 y HOR3.
+Cod_localidad       CHAR(6) NOT NULL,
 PRIMARY KEY (Cod_pub)
 );
+
+CREATE TABLE Titular (
+    DNI_titular     VARCHAR(9) NOT NULL,
+    Nombre          VARCHAR(50) NOT NULL,
+    Domicilio       VARCHAR(50),
+    Cod_pub         VARCHAR(10) NOT NULL,
+    PRIMARY KEY (DNI_titular)
+)
+
+CREATE TABLE Empleado (
+    DNI_empleado    VARCHAR(9) NOT NULL,
+    Nombre          VARCHAR(50) NOT NULL,
+    Domicilio       VARCHAR(50),
+    PRIMARY KEY (DNI_empleado)
+)
+
+CREATE TABLE Existencias (
+    Cod_articulo    VARCHAR(10) NOT NULL,
+    Nombre          VARCHAR(50) NOT NULL, 
+    Cantidad        DECIMAL(5,2) NOT NULL,
+    Precio          DECIMAL(6,2) NOT NULL, --No es posible dar de alta EXISTENCIAS a precio 0.
+    Cod_pub         VARCHAR(10) NOT NULL,
+    PRIMARY KEY (Cod_articulo)
+)
+
+CREATE TABLE Localidad (
+    Cod_localidad   CHAR(6) NOT NULL,
+    Nombre          VARCHAR(50) NOT NULL, 
+    PRIMARY KEY (Cod_pub)
+);
+
+CREATE TABLE Pub_empleado (
+    Cod_pub         VARCHAR(10) NOT NULL,
+    DNI_empleado    VARCHAR(9) NOT NULL,
+    Funcion         VARCHAR(50) NOT NULL, --El campo función de la tabla PUB_EMPLEADO sólo puede tener los valores CAMARERO, SEGURIDAD, LIMPIEZA.
+    PRIMARY KEY (Cod_pub, DNI_empleado, Funcion)
+)
