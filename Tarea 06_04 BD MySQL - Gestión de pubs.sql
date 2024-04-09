@@ -67,3 +67,21 @@ CREATE TABLE Pub_empleado (
     Funcion         VARCHAR(50) NOT NULL CHECK (Funcion IN ('CAMARERO', 'SEGURIDAD', 'LIMPIEZA')),
     PRIMARY KEY (Cod_pub, DNI_empleado, Funcion)
 );
+
+ALTER TABLE Pub 
+ADD CONSTRAINT fk_Pub_Localidad
+FOREIGN KEY (Cod_localidad) REFERENCES Localidad (Cod_localidad);
+
+ALTER TABLE Titular
+ADD CONSTRAINT fk_Titular_Pub
+FOREIGN KEY (Cod_pub) REFERENCES Pub (Cod_pub);
+
+ALTER TABLE Existencias 
+ADD CONSTRAINT fk_Existencias_Pub
+FOREIGN KEY (Cod_pub) REFERENCES Pub (Cod_pub);
+
+ALTER TABLE Pub_empleado 
+ADD CONSTRAINT fk_PubEmpleado_Pub
+FOREIGN KEY (Cod_pub) REFERENCES Pub (Cod_pub),
+ADD CONSTRAINT fk_PubEmpleado_Empleado
+FOREIGN KEY (DNI_empleado) REFERENCES Empleado (DNI_empleado);
