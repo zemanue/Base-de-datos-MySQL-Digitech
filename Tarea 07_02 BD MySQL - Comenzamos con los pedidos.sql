@@ -32,6 +32,10 @@ CREATE TABLE Articulo (
     PRIMARY KEY (CodArt)
 );
 
-
+ALTER TABLE LineaPedido 
+ADD CONSTRAINT fk_LineaPedido_Pedido
+FOREIGN KEY (RefPed) REFERENCES Pedido (RefPed),
+ADD CONSTRAINT fk_LineaPedido_Articulo
+FOREIGN KEY (CodArt) REFERENCES Articulo (CodArt);
 
 
